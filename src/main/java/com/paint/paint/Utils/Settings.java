@@ -30,7 +30,7 @@ public class Settings implements Serializable {
 
     static void Output() {
         try {
-            ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("setting.txt"));
+            ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("config"));
             oos.writeObject(INSTANCE);
             oos.close();
         } catch (Exception e) {
@@ -41,7 +41,7 @@ public class Settings implements Serializable {
     private static Settings Input() {
         Settings s = new Settings();
         try {
-            ObjectInputStream ois = new ObjectInputStream(new FileInputStream("setting.txt"));
+            ObjectInputStream ois = new ObjectInputStream(new FileInputStream("config"));
             s = (Settings) ois.readObject();
             ois.close();
         } catch (Exception e) {

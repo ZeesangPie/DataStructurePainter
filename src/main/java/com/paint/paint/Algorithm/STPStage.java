@@ -27,14 +27,14 @@ public class STPStage {
 
     private void kruskal() {
         edges.sort(Comparator.comparingDouble(MyEdge::getLength));
-        for (int i=0;i<edges.size();i++) {
-            MyNode u=picture.findByName(edges.get(i).getUNode().getName());
-            MyNode v=picture.findByName(edges.get(i).getVNode().getName());
-            MyNode x=find(u),y=find(v);
-            if (x!=y) {
-                picture.creatEdge(u,v,edges.get(i).getColor(),edges.get(i).getLength());
-                picture.creatEdge(v,u,edges.get(i).getColor(),edges.get(i).getLength());
-                next.put(x,y);
+        for (MyEdge edge : edges) {
+            MyNode u = picture.findByName(edge.getUNode().getName());
+            MyNode v = picture.findByName(edge.getVNode().getName());
+            MyNode x = find(u), y = find(v);
+            if (x != y) {
+                picture.creatEdge(u, v, edge.getColor(), edge.getLength());
+                picture.creatEdge(v, u, edge.getColor(), edge.getLength());
+                next.put(x, y);
                 cnt++;
             }
         }

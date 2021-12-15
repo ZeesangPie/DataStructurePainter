@@ -79,7 +79,6 @@ public class DijskraStage {
 
         DistText distText = new DistText(picture.findByName(st.getName()),0);
         ((Group)picture.getRoot()).getChildren().add(distText);
-//        picture.reserve++;
 
         for (MyNode v:pre.keySet()) {
             MyEdge edge=pre.get(v);
@@ -88,7 +87,6 @@ public class DijskraStage {
 
             distText = new DistText(v,dist.get(v.getName()));
             ((Group)picture.getRoot()).getChildren().add(distText);
-//            picture.reserve++;
         }
     }
 }
